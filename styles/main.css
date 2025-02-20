@@ -13,7 +13,8 @@
   --off-white: #f8f9fa; /* Backgrounds */
   --pure-white: #ffffff;
   --btn-primary: #0061ef;
-  --border-gray: #e2ded9;
+  --btn-secondary: #f9f4f2;
+  --btn-hover: #e2ded9;
 
   /* Typography */
   --font-base: "Inter", system-ui, sans-serif;
@@ -265,7 +266,7 @@ h6 {
   justify-content: space-between;
   padding: 1.5rem;
   border-radius: 0.5rem;
-  border: 2px solid var(--border-gray);
+  border: 2px solid #e2ded9;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -317,4 +318,223 @@ h6 {
 
 .headspace__icon .fa-users {
   color: #ff76b8;
+}
+
+/* moments styles */
+.moments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 0;
+  gap: 4rem;
+}
+
+.moments__title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 650;
+  color: var(--dark);
+  width: 40%;
+  text-align: center;
+}
+
+.moments__btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.moments__btn {
+  background-color: var(--btn-secondary);
+  color: var(--dark);
+  font-weight: bold;
+  padding: 1rem 2.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.moments__btn:hover {
+  background-color: var(--btn-hover);
+  transition: all 0.2s;
+}
+
+.moments__btn.active {
+  background-color: var(--dark);
+  color: var(--pure-white);
+}
+
+.moments__slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider__card {
+  display: none;
+}
+
+.slider__card.active {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  transition: all 0.2s;
+  overflow: hidden;
+  width: 90%;
+  height: 590px;
+}
+
+.guided-meditation {
+  background-color: #0061ef;
+}
+
+.ai-guidance {
+  background-color: #ffce00;
+
+  .slider__content {
+    color: var(--dark);
+  }
+}
+
+.sleep-resources {
+  background-color: #3b197f;
+}
+
+.expert-led {
+  background-color: #02873e;
+}
+
+.slider__image {
+  max-width: 40%;
+  position: relative;
+  top: 220px;
+  left: 0;
+}
+
+.slider__content {
+  max-width: 28%;
+  color: var(--pure-white);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: start;
+  line-height: 1.2;
+}
+
+.slider__title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 620;
+}
+
+.slider__description {
+  font-family: var(--font-base);
+  font-size: 1.2rem;
+}
+
+.audio__player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.play-pause__icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--btn-secondary);
+  color: var(--dark);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.play-pause__icon:hover {
+  background-color: #e0e0e0;
+}
+
+/* Track Title */
+.track__title {
+  font-size: 0.8rem;
+}
+
+/* Progress Container */
+.progress__container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.progress__container--inner {
+  display: flex;
+  align-items: center;
+}
+
+/* Time Indicators */
+.current__time,
+.total__time {
+  font-size: 0.7rem;
+  color: var(--light-gray);
+}
+
+/* Progress Bar (range input) */
+.progress__bar {
+  flex: 1; /* expands to fill available space */
+  margin: 0 0.5rem;
+  cursor: pointer;
+  background: transparent;
+  width: 200px;
+}
+
+/* Progress Bar - Track */
+.progress__bar::-webkit-slider-runnable-track {
+  height: 4px;
+  background: var(--dark);
+  border-radius: 2px;
+}
+.progress__bar::-moz-range-track {
+  height: 4px;
+  background: var(--dark);
+  border-radius: 2px;
+}
+
+/* Progress Bar - Thumb */
+.progress__bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  background: var(--off-white);
+  border-radius: 50%;
+  margin-top: -3px; /* to center the thumb on the track */
+  cursor: pointer;
+}
+.progress__bar::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  background: var(--off-white);
+  border-radius: 50%;
+  margin-top: -3px; /* to center the thumb on the track */
+  cursor: pointer;
+}
+
+.slider__btn {
+  background-color: var(--pure-white);
+  color: var(--dark);
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.slider__btn:hover {
+  background-color: var(--btn-hover);
+  transition: all 0.2s;
 }

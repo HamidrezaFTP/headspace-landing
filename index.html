@@ -9,6 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <link rel="stylesheet" href="./styles/main.css" />
+    <script defer src="./scripts/app.js"></script>
   </head>
   <body>
     <header class="header">
@@ -122,6 +123,179 @@
             <div class="headspace__icon">
               <i class="fa fa-users primary"></i>
               <i class="fa fa-arrow-right secondary"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="moments">
+        <h2 class="moments__title">The mental health app for every moment</h2>
+        <div class="moments__btns">
+          <button class="moments__btn active" data-slide="0">
+            Guided meditations
+          </button>
+          <button class="moments__btn" data-slide="1">AI guidance</button>
+          <button class="moments__btn" data-slide="2">Sleep resources</button>
+          <button class="moments__btn" data-slide="3">
+            Expert-led programs
+          </button>
+        </div>
+        <div class="moments__slider">
+          <div class="slider__card guided-meditation active" data-slide="0">
+            <div class="slider__image">
+              <img
+                src="./assets/images/guided-meditation.webp"
+                alt="Guided meditation"
+              />
+            </div>
+            <div class="slider__content">
+              <h3 class="slider__title">Feel-good library</h3>
+              <p class="slider__description">
+                Explore 1,000+ guided meditations for feeling more relaxed —
+                ad-free and always there. Try one for yourself.
+              </p>
+              <div class="audio__player">
+                <button class="play-pause__btn" aria-label="Play">
+                  <i class="fa fa-play play-pause__icon"></i>
+                </button>
+
+                <div class="progress__container">
+                  <div>
+                    <span class="track__title">Breathe</span>
+                  </div>
+                  <div class="progress__container--inner">
+                    <span class="current__time">0:00</span>
+                    <input
+                      type="range"
+                      class="progress__bar"
+                      min="0"
+                      max="100"
+                      value="0"
+                      step="1"
+                      aria-label="Audio Progress"
+                    />
+                    <span class="total__time">5:15</span>
+                  </div>
+                </div>
+
+                <!-- Actual Audio Element (can be visually hidden) -->
+                <audio class="audio__element">
+                  <source src="./assets/audios/audio.mp3" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+
+              <button class="slider__btn">Learn more</button>
+            </div>
+          </div>
+          <div class="slider__card ai-guidance" data-slide="1">
+            <div class="slider__image">
+              <img
+                src="./assets/images/guided-meditation.webp"
+                alt="Guided meditation"
+              />
+            </div>
+            <div class="slider__content">
+              <h3 class="slider__title">Always-there support</h3>
+              <p class="slider__description">
+                Unpack what’s on your mind with Ebb, our empathetic AI
+                companion, and get personalized recommendations based on how
+                you’re feeling.
+              </p>
+              <button class="slider__btn">Chat with Ebb</button>
+            </div>
+          </div>
+          <div class="slider__card sleep-resources" data-slide="2">
+            <div class="slider__image">
+              <img
+                src="./assets/images/guided-meditation.webp"
+                alt="Guided meditation"
+              />
+            </div>
+            <div class="slider__content">
+              <h3 class="slider__title">Bedtime essentials</h3>
+              <p class="slider__description">
+                Sleep more soundly every night with bedtime meditations, proven
+                exercises, and relaxing sounds. Give it a listen.
+              </p>
+              <div class="audio__player">
+                <button class="play-pause__btn" aria-label="Play">
+                  <i class="fa fa-play play-pause__icon"></i>
+                </button>
+
+                <div class="progress__container">
+                  <div>
+                    <span class="track__title">SOS Racing Thoughts</span>
+                  </div>
+                  <div class="progress__container--inner">
+                    <span class="current__time">0:00</span>
+                    <input
+                      type="range"
+                      class="progress__bar"
+                      min="0"
+                      max="100"
+                      value="0"
+                      step="1"
+                      aria-label="Audio Progress"
+                    />
+                    <span class="total__time">5:15</span>
+                  </div>
+                </div>
+
+                <!-- Actual Audio Element (can be visually hidden) -->
+                <audio class="audio__element">
+                  <source src="./assets/audios/audio.mp3" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+
+              <button class="slider__btn">Explore sleep resources</button>
+            </div>
+          </div>
+          <div class="slider__card expert-led" data-slide="3">
+            <div class="slider__image">
+              <img
+                src="./assets/images/guided-meditation.webp"
+                alt="Guided meditation"
+              />
+            </div>
+            <div class="slider__content">
+              <h3 class="slider__title">Do-anywhere exercises</h3>
+              <p class="slider__description">
+                Reach your mental health goals with proven courses and
+                expert-led guidance. Check out a preview here.
+              </p>
+              <div class="audio__player">
+                <button class="play-pause__btn" aria-label="Play">
+                  <i class="fa fa-play play-pause__icon"></i>
+                </button>
+
+                <div class="progress__container">
+                  <div>
+                    <span class="track__title">Travel Sleep Tips</span>
+                  </div>
+                  <div class="progress__container--inner">
+                    <span class="current__time">0:00</span>
+                    <input
+                      type="range"
+                      class="progress__bar"
+                      min="0"
+                      max="100"
+                      value="0"
+                      step="1"
+                      aria-label="Audio Progress"
+                    />
+                    <span class="total__time">5:15</span>
+                  </div>
+                </div>
+
+                <!-- Actual Audio Element (can be visually hidden) -->
+                <audio class="audio__element">
+                  <source src="./assets/audios/audio.mp3" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+
+              <button class="slider__btn">Learn more</button>
             </div>
           </div>
         </div>
