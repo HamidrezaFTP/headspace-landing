@@ -135,9 +135,19 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--pure-white);
-  box-shadow: var(--shadow-sm);
   padding: 1rem 4.5rem;
+  position: fixed; /* always stays at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: var(--pure-white);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Shadow class */
+.header.with-shadow {
+  box-shadow: var(--shadow-sm);
 }
 
 .header__logo {
@@ -536,5 +546,47 @@ h6 {
 
 .slider__btn:hover {
   background-color: var(--btn-hover);
+  transition: all 0.2s;
+}
+
+/* experts styles */
+.experts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 0;
+  gap: 2.5rem;
+}
+
+.experts__title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 650;
+  color: var(--dark);
+  width: 40%;
+  text-align: center;
+}
+
+.experts__description {
+  font-family: var(--font-base);
+  font-size: 1.2rem;
+  color: var(--dark);
+  max-width: 50%;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.experts__btn {
+  background-color: var(--dark);
+  color: var(--pure-white);
+  font-weight: 600;
+  padding: 1.5rem 2rem;
+  border-radius: 2.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.experts__btn:hover {
+  background-color: #000;
   transition: all 0.2s;
 }

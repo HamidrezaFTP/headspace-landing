@@ -1,5 +1,6 @@
 const buttonsContainer = document.querySelector(".moments__btns");
 const slides = document.querySelectorAll(".slider__card");
+const header = document.getElementById("main-header");
 
 buttonsContainer.addEventListener("click", function (e) {
   const button = e.target.closest(".moments__btn");
@@ -20,6 +21,7 @@ buttonsContainer.addEventListener("click", function (e) {
   // Add active class to the corresponding slide
   slides[slideIndex].classList.add("active");
 });
+
 document.querySelectorAll(".audio__element").forEach((audioElement, index) => {
   const playPauseBtn = document.querySelectorAll(".play-pause__btn")[index];
   const playPauseIcon = playPauseBtn.querySelector(".play-pause__icon");
@@ -94,4 +96,10 @@ document.querySelectorAll(".audio__element").forEach((audioElement, index) => {
     const secs = Math.floor(seconds % 60);
     return `${minutes}:${secs < 10 ? "0" + secs : secs}`;
   }
+});
+
+window.addEventListener("scroll", () => {
+  window.scrollY > 50
+    ? header.classList.add("with-shadow")
+    : header.classList.remove("with-shadow");
 });
