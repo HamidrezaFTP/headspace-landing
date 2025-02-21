@@ -1,6 +1,8 @@
 const buttonsContainer = document.querySelector(".moments__btns");
 const slides = document.querySelectorAll(".slider__card");
 const header = document.getElementById("main-header");
+const images = document.querySelectorAll(".members__img");
+const comments = document.querySelectorAll(".members__comment");
 
 buttonsContainer.addEventListener("click", function (e) {
   const button = e.target.closest(".moments__btn");
@@ -103,3 +105,20 @@ window.addEventListener("scroll", () => {
     ? header.classList.add("with-shadow")
     : header.classList.remove("with-shadow");
 });
+
+const observerOptions = {
+  root: null, // Use the viewport as the container
+  threshold: 0.1, // Trigger when 10% of the image is visible
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fade-in");
+      observer.unobserve(entry.target); // Stop observing once the animation is triggered
+    }
+  });
+}, observerOptions);
+
+images.forEach((img) => observer.observe(img));
+comments.forEach((comment) => observer.observe(comment));

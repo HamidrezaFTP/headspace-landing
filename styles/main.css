@@ -590,3 +590,109 @@ h6 {
   background-color: #000;
   transition: all 0.2s;
 }
+
+/* members styles */
+.members {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15rem;
+  padding-bottom: 4rem;
+  gap: 10rem;
+}
+
+.members__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.members__title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: var(--dark);
+  width: 80%;
+  text-align: center;
+}
+
+.members__img {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(20px); /* Optional: adds a subtle slide-up effect */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Visible state: fade in and slide to original position */
+.members__img.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.member-image-1 {
+  top: 100%;
+  right: 23%;
+}
+
+.member-image-2 {
+  bottom: 150%;
+  right: 13%;
+}
+
+.member-image-3 {
+  bottom: 100%;
+  left: 7%;
+}
+
+.member-image-4 {
+  top: 70%;
+  left: 23%;
+}
+
+.star-image-1 {
+  bottom: 200%;
+  left: 38%;
+}
+
+.star-image-2 {
+  top: -50%;
+  right: 35%;
+}
+
+.members__comments {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 90%;
+}
+
+.members__comment {
+  background-color: #f9f4f2;
+  padding: 3rem 0 3rem 2rem;
+  border-radius: 1.2rem;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.members__comment.fade-in {
+  opacity: 1;
+}
+
+.members__comment--text {
+  font-family: var(--font-base);
+  font-size: 1.5rem;
+  color: var(--dark);
+  line-height: 1.4;
+  margin-bottom: 6rem;
+  width: 80%;
+}
+
+.members__comment--info {
+  font-family: var(--font-heading);
+  width: 55%;
+  color: var(--dark);
+  line-height: 1.5;
+}
