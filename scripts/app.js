@@ -1,9 +1,6 @@
 const buttonsContainer = document.querySelector(".moments__btns");
 const slides = document.querySelectorAll(".slider__card");
 const header = document.getElementById("main-header");
-const images = document.querySelectorAll(".members__img");
-const comments = document.querySelectorAll(".members__comment");
-const organizationsImg = document.querySelector(".organizations__img");
 
 buttonsContainer.addEventListener("click", function (e) {
   const button = e.target.closest(".moments__btn");
@@ -107,20 +104,61 @@ window.addEventListener("scroll", () => {
     : header.classList.remove("with-shadow");
 });
 
-const observerOptions = {
-  root: null, // Use the viewport as the container
-  threshold: 0.1, // Trigger when 10% of the image is visible
-};
-
+const observerOptions = { root: null, threshold: 0.1 };
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("fade-in");
-      observer.unobserve(entry.target); // Stop observing once the animation is triggered
+      if (entry.target.hasAttribute("data-target")) {
+        animateCounter(entry.target);
+      }
+      if (
+        entry.target.hasAttribute("data-rating") &&
+        entry.target.classList.contains("stars")
+      ) {
+        animateStars(entry.target);
+      }
+      observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
-
-images.forEach((img) => observer.observe(img));
-comments.forEach((comment) => observer.observe(comment));
-observer.observe(organizationsImg);
+const elementsToAnimate = document.querySelectorAll(
+  ".stats__img, .stat-number, .members__comment, .organizations__img, .members__img, .stars"
+);
+elementsToAnimate.forEach((el) => observer.observe(el));
+function animateCounter(el) {
+  const targetValue = parseFloat(el.getAttribute("data-target")) || 0;
+  const suffix = el.getAttribute("data-suffix") || "";
+  const duration = 2000;
+  const startTime = performance.now();
+  const hasDecimal = targetValue % 1 !== 0;
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const currentValue = targetValue * progress;
+    el.textContent = hasDecimal
+      ? currentValue.toFixed(1) + suffix
+      : Math.floor(currentValue) + suffix;
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+  requestAnimationFrame(update);
+}
+function animateStars(el) {
+  const targetRating = parseFloat(el.getAttribute("data-rating")) || 0;
+  const targetWidth = (targetRating / 5) * 100;
+  const duration = 2000;
+  const startTime = performance.now();
+  const fillEl = el.querySelector(".stars__fill");
+  if (!fillEl) return;
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    fillEl.style.width = progress * targetWidth + "%";
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+  requestAnimationFrame(update);
+}
