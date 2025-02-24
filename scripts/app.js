@@ -3,6 +3,7 @@ const slides = document.querySelectorAll(".slider__card");
 const header = document.getElementById("main-header");
 const images = document.querySelectorAll(".members__img");
 const comments = document.querySelectorAll(".members__comment");
+const organizationsImg = document.querySelector(".organizations__img");
 
 buttonsContainer.addEventListener("click", function (e) {
   const button = e.target.closest(".moments__btn");
@@ -122,3 +123,4 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 images.forEach((img) => observer.observe(img));
 comments.forEach((comment) => observer.observe(comment));
+observer.observe(organizationsImg);

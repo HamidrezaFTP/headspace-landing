@@ -621,14 +621,12 @@ h6 {
 .members__img {
   position: absolute;
   opacity: 0;
-  transform: translateY(20px); /* Optional: adds a subtle slide-up effect */
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition: opacity 0.5s ease-out;
 }
 
 /* Visible state: fade in and slide to original position */
 .members__img.fade-in {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .member-image-1 {
@@ -811,4 +809,13 @@ h6 {
 .learn-btn:hover {
   background-color: #0040ea;
   transition: all 0.2s;
+}
+
+.organizations__img {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.organizations__img.fade-in {
+  opacity: 1;
 }
