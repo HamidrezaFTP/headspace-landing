@@ -4,7 +4,7 @@ const buttonsContainer = document.querySelector(".moments__btns");
 const slides = document.querySelectorAll(".slider__card");
 const header = document.getElementById("main-header");
 const elementsToAnimate = document.querySelectorAll(
-  ".stats__img, .stat-number, .members__comment, .organizations__img, .members__img, .stars"
+  ".stats__img, .stat-number, .members__comment, .organizations__img, .members__img"
 );
 
 buttonsContainer.addEventListener("click", function (e) {
@@ -34,6 +34,14 @@ document.querySelectorAll(".audio__element").forEach((audioElement, index) => {
   const currentTimeEl = document.querySelectorAll(".current__time")[index];
   const totalTimeEl = document.querySelectorAll(".total__time")[index];
   let isPlaying = false;
+
+  // Helper: Format seconds to mm:ss
+  const formatTime = function (seconds) {
+    if (isNaN(seconds)) return "0:00";
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? "0" + secs : secs}`;
+  };
 
   // Load metadata to get total duration
   audioElement.addEventListener("loadedmetadata", () => {
@@ -93,14 +101,6 @@ document.querySelectorAll(".audio__element").forEach((audioElement, index) => {
     const newTime = (progressBar.value / 100) * duration;
     audioElement.currentTime = newTime;
   });
-
-  // Helper: Format seconds to mm:ss
-  function formatTime(seconds) {
-    if (isNaN(seconds)) return "0:00";
-    const minutes = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${minutes}:${secs < 10 ? "0" + secs : secs}`;
-  }
 });
 
 window.addEventListener("scroll", () => {
@@ -111,20 +111,7 @@ window.addEventListener("scroll", () => {
 
 const observerOptions = { root: null, threshold: 0.1 };
 
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("fade-in");
-      if (entry.target.hasAttribute("data-target"))
-        animateCounter(entry.target);
-      if (entry.target.hasAttribute("data-rating")) animateStars(entry.target);
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
-
-elementsToAnimate.forEach((el) => observer.observe(el));
-function animateCounter(el) {
+const animateCounter = function (el) {
   const targetValue = parseFloat(el.getAttribute("data-target")) || 0;
   const suffix = el.getAttribute("data-suffix") || "";
   const duration = 2000;
@@ -140,4 +127,17 @@ function animateCounter(el) {
     if (progress < 1) requestAnimationFrame(update);
   }
   requestAnimationFrame(update);
-}
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fade-in");
+      if (entry.target.hasAttribute("data-target"))
+        animateCounter(entry.target);
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+elementsToAnimate.forEach((el) => observer.observe(el));
