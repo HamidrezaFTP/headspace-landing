@@ -6,6 +6,7 @@ const header = document.getElementById("main-header");
 const elementsToAnimate = document.querySelectorAll(
   ".stats__img, .stat-number, .members__comment, .organizations__img, .members__img"
 );
+const faqContainer = document.querySelector(".faq__container");
 
 buttonsContainer.addEventListener("click", function (e) {
   const button = e.target.closest(".moments__btn");
@@ -141,3 +142,18 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, observerOptions);
 
 elementsToAnimate.forEach((el) => observer.observe(el));
+
+faqContainer.addEventListener("click", (e) => {
+  const questionBtn = e.target.closest(".faq__question");
+  if (!questionBtn) return;
+
+  const item = questionBtn.closest(".faq__item");
+  if (!item) return;
+
+  // Toggle active class
+  item.classList.toggle("active");
+
+  // Optionally, toggle + / -
+  const indicator = questionBtn.querySelector(".faq__toggle");
+  indicator.textContent = item.classList.contains("active") ? "–" : "+";
+});
