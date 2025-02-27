@@ -1043,6 +1043,7 @@ h6 {
   background-color: #f9f4f2;
 }
 
+/* newsletter section styles */
 .footer__newsletter {
   display: flex;
   align-items: center;
@@ -1101,4 +1102,69 @@ h6 {
 .footer__btn:hover {
   background-color: #000;
   transition: all 0.2s;
+}
+
+/* links section styles */
+.footer__info {
+  width: 100%;
+  position: relative;
+}
+
+.footer__links {
+  display: flex;
+  gap: 4rem;
+  padding-top: 2rem;
+  justify-content: center;
+}
+
+.footer__links--title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 650;
+  color: var(--dark);
+  margin-bottom: 2rem;
+}
+
+.footer__links--list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__link {
+  font-size: 0.7rem;
+  color: var(--gray);
+  transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+  color: #000;
+}
+
+.footer__links--btn {
+  background-color: var(--btn-primary);
+  color: var(--pure-white);
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  opacity: 0.9;
+}
+
+.footer__links--btn:hover {
+  opacity: 1;
+  transition: all 0.2s;
+}
+
+.footer__img {
+  width: 150px;
+  margin-bottom: 0.5rem;
+}
+
+.footer__top-arrow {
+  position: absolute;
+  bottom: 0;
+  right: 4rem;
+  cursor: pointer;
+  font-size: 2rem;
 }
