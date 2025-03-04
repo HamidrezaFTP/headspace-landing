@@ -1314,6 +1314,22 @@ h6 {
     font-size: 1rem;
     padding: 1rem;
   }
+
+  .experts {
+    padding-top: 0;
+  }
+
+  .experts__title {
+    font-size: 2rem;
+  }
+
+  .experts__description {
+    font-size: 1rem;
+  }
+
+  .experts__btn {
+    padding: 1rem 1.5rem;
+  }
 }
 
 @media screen and (max-width: 981px) {
@@ -1352,6 +1368,10 @@ h6 {
     font-size: 0.7rem;
     padding: 1rem;
   }
+
+  .experts__title {
+    font-size: 1.5rem;
+  }
 }
 
 @media screen and (max-width: 580px) {
@@ -1369,5 +1389,17 @@ h6 {
 
   .hero__image {
     max-width: 50%;
+  }
+
+  .experts__title {
+    font-size: 1rem;
+  }
+
+  .experts__description {
+    font-size: 0.7rem;
+  }
+
+  .experts__btn {
+    padding: 0.7rem 1rem;
   }
 }
