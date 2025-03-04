@@ -416,14 +416,14 @@ h6 {
 }
 
 .slider__image {
-  max-width: 40%;
+  width: 40%;
   position: relative;
   top: 220px;
   left: 0;
 }
 
 .slider__content {
-  max-width: 28%;
+  width: 28%;
   color: var(--pure-white);
   display: flex;
   flex-direction: column;
@@ -1247,11 +1247,72 @@ h6 {
   .hero__image {
     max-width: 35%;
   }
+
+  .moments__title {
+    font-size: 2.5rem;
+  }
+
+  .slider__card {
+    height: 400px !important;
+  }
+
+  .slider__content {
+    width: 30%;
+  }
+
+  .slider__image {
+    width: 35%;
+  }
+
+  .slider__title {
+    font-size: 2rem;
+  }
+
+  .slider__description {
+    font-size: 0.7rem;
+  }
+
+  .slider__btn {
+    font-size: 0.7rem;
+  }
 }
 
 @media screen and (max-width: 1030px) {
   .nav--primary {
     display: none;
+  }
+
+  .moments__title {
+    width: 80%;
+  }
+
+  .slider__card {
+    width: 100% !important;
+  }
+
+  .slider__content {
+    width: 100%;
+  }
+
+  .slider__image {
+    display: none;
+  }
+
+  .slider__title {
+    font-size: 2rem;
+  }
+
+  .slider__description {
+    font-size: 0.7rem;
+  }
+
+  .slider__btn {
+    font-size: 0.7rem;
+  }
+
+  .moments__btn {
+    font-size: 1rem;
+    padding: 1rem;
   }
 }
 
@@ -1285,6 +1346,11 @@ h6 {
 
   .headspace__title {
     font-size: 1.5rem;
+  }
+
+  .moments__btn {
+    font-size: 0.7rem;
+    padding: 1rem;
   }
 }
 
