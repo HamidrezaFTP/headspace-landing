@@ -1221,3 +1221,83 @@ h6 {
   background-color: #e0e0e0;
   transition: all 0.2s;
 }
+
+/* Responsive styles */
+@media screen and (max-width: 1350px) {
+  .nav--secondary {
+    display: none;
+  }
+
+  .hero__content {
+    max-width: 40%;
+  }
+
+  .hero__title {
+    font-size: 3rem;
+  }
+
+  .hero__description {
+    font-size: 1rem;
+  }
+
+  .hero__cta {
+    font-size: 1.2rem;
+  }
+
+  .hero__image {
+    max-width: 35%;
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  .nav--primary {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 981px) {
+  .hero {
+    flex-direction: column;
+    padding-top: 8rem;
+    gap: 4rem;
+  }
+
+  .hero__content {
+    max-width: 50%;
+    text-align: center;
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+  }
+
+  .hero__description {
+    font-size: 1rem;
+  }
+
+  .hero__cta {
+    font-size: 1.2rem;
+  }
+
+  .hero__image {
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .hero__title {
+    font-size: 1.2rem;
+  }
+
+  .hero__description {
+    font-size: 0.7rem;
+  }
+
+  .hero__cta {
+    font-size: 0.7rem;
+  }
+
+  .hero__image {
+    max-width: 50%;
+  }
+}
