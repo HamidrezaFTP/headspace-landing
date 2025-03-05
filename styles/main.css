@@ -916,9 +916,11 @@ h6 {
 
 .stats__numbers {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: space-around;
   align-items: center;
+  gap: 2rem;
 }
 
 .stats__rating {
@@ -1415,6 +1417,10 @@ h6 {
   .members__comment--info {
     font-size: 0.7rem;
   }
+
+  .stats__title {
+    font-size: 2.5rem;
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -1437,6 +1443,14 @@ h6 {
   .organizations__btn {
     padding: 1rem;
     font-size: 0.6rem;
+  }
+
+  .stats__title {
+    font-size: 1.5rem;
+  }
+
+  .stats__img {
+    display: none;
   }
 }
 
