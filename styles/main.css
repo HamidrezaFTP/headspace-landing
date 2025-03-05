@@ -1285,6 +1285,10 @@ h6 {
   .members__img {
     display: none;
   }
+
+  .brands {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1030px) {
@@ -1340,6 +1344,22 @@ h6 {
   .experts__btn {
     padding: 1rem 1.5rem;
   }
+
+  .organizations__title {
+    font-size: 2rem;
+  }
+
+  .organizations__text {
+    font-size: 1rem;
+  }
+
+  .organizations__btns {
+    font-size: 0.7rem;
+  }
+
+  .organizations__img {
+    width: 50%;
+  }
 }
 
 @media screen and (max-width: 981px) {
@@ -1394,6 +1414,29 @@ h6 {
 
   .members__comment--info {
     font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .organizations__img {
+    display: none;
+  }
+
+  .organizations__description {
+    width: 100%;
+  }
+
+  .organizations__title {
+    font-size: 1.5rem;
+  }
+
+  .organizations__text {
+    font-size: 0.7rem;
+  }
+
+  .organizations__btn {
+    padding: 1rem;
+    font-size: 0.6rem;
   }
 }
 
