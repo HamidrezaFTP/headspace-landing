@@ -1421,6 +1421,18 @@ h6 {
   .stats__title {
     font-size: 2.5rem;
   }
+
+  .faq__title {
+    font-size: 2rem;
+  }
+
+  .faq__question {
+    font-size: 1rem;
+  }
+
+  .faq__answer {
+    font-size: 0.9rem;
+  }
 }
 
 @media screen and (max-width: 750px) {
