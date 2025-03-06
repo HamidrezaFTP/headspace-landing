@@ -1362,6 +1362,19 @@ h6 {
   .organizations__img {
     width: 50%;
   }
+
+  .footer__newsletter {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .footer__newsletter--img {
+    display: none;
+  }
+
+  .footer__newsletter--form {
+    width: 50%;
+  }
 }
 
 @media screen and (max-width: 981px) {
