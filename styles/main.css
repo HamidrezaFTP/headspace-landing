@@ -1114,10 +1114,11 @@ h6 {
 }
 
 .footer__links {
-  display: flex;
-  gap: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
   padding-top: 2rem;
-  justify-content: center;
+  padding-left: 8rem;
 }
 
 .footer__links--title {
@@ -1289,6 +1290,11 @@ h6 {
   }
 
   .brands {
+    display: none;
+  }
+
+  .my-headspace,
+  .get-the-app {
     display: none;
   }
 }
