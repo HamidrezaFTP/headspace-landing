@@ -263,7 +263,7 @@ h6 {
 
 .headspace__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   max-width: 100%;
   margin: 0 auto;
@@ -1515,6 +1515,26 @@ h6 {
 
   .hero__image {
     max-width: 50%;
+  }
+
+  .headspace__title {
+    font-size: 1rem;
+  }
+
+  .headspace__card {
+    padding: 1rem;
+  }
+
+  .headspace__card--title {
+    font-size: 1rem;
+  }
+
+  .headspace__icon {
+    font-size: 1rem;
+  }
+
+  .headspace__icon .primary {
+    font-size: 1.5rem;
   }
 
   .experts__title {
