@@ -1297,6 +1297,10 @@ h6 {
   .get-the-app {
     display: none;
   }
+
+  .footer__legal--links {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1030px) {
