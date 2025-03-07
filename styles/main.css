@@ -841,7 +841,6 @@ h6 {
   align-items: center;
   color: var(--pure-white);
   margin-right: 2rem;
-  width: 60%;
   gap: 3rem;
   position: relative;
 }
@@ -1586,6 +1585,38 @@ h6 {
 
   .members__title {
     font-size: 1.5rem;
+  }
+
+  .meditation-icon {
+    width: 50px;
+  }
+
+  .organizations {
+    margin-top: 0;
+  }
+
+  .organizations__content {
+    padding-top: 0;
+  }
+
+  .stat-label,
+  .stat-number,
+  .stars,
+  .stats__item--text {
+    font-size: 0.8rem;
+  }
+
+  .stats__rating {
+    gap: 1rem;
+  }
+
+  .stats__awards--img {
+    width: 100px;
+  }
+
+  .stats {
+    gap: 4rem;
+    padding: 2rem;
   }
 
   .footer__legal--copyright {
