@@ -151,7 +151,6 @@ h6 {
 }
 
 .header__logo {
-  font-size: 1.5rem;
   font-weight: 700;
   color: var(--dark);
   width: 150px;
@@ -1490,6 +1489,18 @@ h6 {
 }
 
 @media screen and (max-width: 580px) {
+  .header {
+    padding: 1rem 1.2rem;
+  }
+
+  .header__logo {
+    width: 100px;
+  }
+
+  .header__cta {
+    font-size: 0.8rem;
+  }
+
   .hero__title {
     font-size: 1.2rem;
   }
