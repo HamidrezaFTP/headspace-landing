@@ -1,12 +1,6 @@
-/* Headspace-inspired CSS Starter */
 :root {
-  /* Brand Colors */
-  --primary: #ff6b6b; /* Headspace orange */
-  --secondary: #3fa9b5; /* Calming teal */
-  --accent: #ffd166; /* Warm yellow */
-  --success: #88d8c0; /* Mint green */
-
-  /* Neutrals */
+  /* brand colors */
+  --secondary: #3fa9b5;
   --dark: #2d2c2b; /* Primary text */
   --gray: #63605d; /* Secondary text */
   --light-gray: #dfe6e9; /* Borders/dividers */
