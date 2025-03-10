@@ -1,5 +1,6 @@
 "use strict";
 
+// DOM Elements
 const buttonsContainer = document.querySelector(".moments__btns");
 const slides = document.querySelectorAll(".slider__card");
 const header = document.getElementById("main-header");
@@ -7,8 +8,43 @@ const elementsToAnimate = document.querySelectorAll(
   ".stats__img, .stat-number, .members__comment, .organizations__img, .members__img"
 );
 const faqContainer = document.querySelector(".faq__container");
+const audioElements = document.querySelectorAll(".audio__element");
+const playPauseBtns = document.querySelectorAll(".play-pause__btn");
+const playPauseIcons = document.querySelectorAll(".play-pause__icon");
+const progressBars = document.querySelectorAll(".progress__bar");
+const currentTimeEls = document.querySelectorAll(".current__time");
+const totalTimeEls = document.querySelectorAll(".total__time");
 
-buttonsContainer.addEventListener("click", function (e) {
+// Helper Functions
+const formatTime = (seconds) => {
+  if (isNaN(seconds)) return "0:00";
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${minutes}:${secs < 10 ? "0" + secs : secs}`;
+};
+
+const animateCounter = (el) => {
+  const targetValue = parseFloat(el.getAttribute("data-target")) || 0;
+  const suffix = el.getAttribute("data-suffix") || "";
+  const duration = 2000;
+  const startTime = performance.now();
+  const hasDecimal = targetValue % 1 !== 0;
+
+  const update = (currentTime) => {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const currentValue = targetValue * progress;
+    el.textContent = hasDecimal
+      ? currentValue.toFixed(1) + suffix
+      : Math.floor(currentValue) + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  };
+
+  requestAnimationFrame(update);
+};
+
+// Event Listeners
+buttonsContainer.addEventListener("click", (e) => {
   const button = e.target.closest(".moments__btn");
   if (!button) return;
 
@@ -28,80 +64,71 @@ buttonsContainer.addEventListener("click", function (e) {
   slides[slideIndex].classList.add("active");
 });
 
-document.querySelectorAll(".audio__element").forEach((audioElement, index) => {
-  const playPauseBtn = document.querySelectorAll(".play-pause__btn")[index];
-  const playPauseIcon = playPauseBtn.querySelector(".play-pause__icon");
-  const progressBar = document.querySelectorAll(".progress__bar")[index];
-  const currentTimeEl = document.querySelectorAll(".current__time")[index];
-  const totalTimeEl = document.querySelectorAll(".total__time")[index];
+audioElements.forEach((audioElement, index) => {
   let isPlaying = false;
 
-  // Helper: Format seconds to mm:ss
-  const formatTime = function (seconds) {
-    if (isNaN(seconds)) return "0:00";
-    const minutes = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${minutes}:${secs < 10 ? "0" + secs : secs}`;
-  };
-
-  // Load metadata to get total duration
   audioElement.addEventListener("loadedmetadata", () => {
-    const duration = audioElement.duration; // in seconds
-    totalTimeEl.textContent = formatTime(duration);
+    const duration = audioElement.duration;
+    totalTimeEls[index].textContent = formatTime(duration);
   });
 
-  // Play/Pause Button
-  playPauseBtn.addEventListener("click", () => {
-    if (!isPlaying) {
-      // Pause all other audio elements
-      document.querySelectorAll(".audio__element").forEach((el, i) => {
+  audioElement.addEventListener("play", () => {
+    isPlaying = true;
+    playPauseIcons[index].classList.remove("fa-play");
+    playPauseIcons[index].classList.add("fa-pause");
+    playPauseBtns[index].setAttribute("aria-label", "Pause");
+  });
+
+  audioElement.addEventListener("pause", () => {
+    isPlaying = false;
+    playPauseIcons[index].classList.remove("fa-pause");
+    playPauseIcons[index].classList.add("fa-play");
+    playPauseBtns[index].setAttribute("aria-label", "Play");
+  });
+
+  audioElement.addEventListener("timeupdate", () => {
+    const currentTime = audioElement.currentTime;
+    const duration = audioElement.duration;
+    progressBars[index].value = (currentTime / duration) * 100;
+    currentTimeEls[index].textContent = formatTime(currentTime);
+  });
+});
+
+document.addEventListener("click", (e) => {
+  const playPauseBtn = e.target.closest(".play-pause__btn");
+  if (playPauseBtn) {
+    const index = Array.from(playPauseBtns).indexOf(playPauseBtn);
+    const audioElement = audioElements[index];
+    if (!audioElement) return;
+
+    if (audioElement.paused) {
+      audioElements.forEach((el, i) => {
         if (i !== index) {
           el.pause();
-          el.currentTime = 0; // Reset the audio to the beginning
-          const otherPlayPauseIcon =
-            document.querySelectorAll(".play-pause__icon")[i];
-          otherPlayPauseIcon.classList.remove("fa-pause");
-          otherPlayPauseIcon.classList.add("fa-play");
-          const otherPlayPauseBtn =
-            document.querySelectorAll(".play-pause__btn")[i];
-          otherPlayPauseBtn.setAttribute("aria-label", "Play");
+          el.currentTime = 0;
+          playPauseIcons[i].classList.remove("fa-pause");
+          playPauseIcons[i].classList.add("fa-play");
+          playPauseBtns[i].setAttribute("aria-label", "Play");
         }
       });
       audioElement.play();
     } else {
       audioElement.pause();
     }
-  });
+  }
+});
 
-  // Update icon and `isPlaying` state
-  audioElement.addEventListener("play", () => {
-    isPlaying = true;
-    playPauseIcon.classList.remove("fa-play");
-    playPauseIcon.classList.add("fa-pause");
-    playPauseBtn.setAttribute("aria-label", "Pause");
-  });
-  audioElement.addEventListener("pause", () => {
-    isPlaying = false;
-    playPauseIcon.classList.remove("fa-pause");
-    playPauseIcon.classList.add("fa-play");
-    playPauseBtn.setAttribute("aria-label", "Play");
-  });
+document.addEventListener("input", (e) => {
+  const progressBar = e.target.closest(".progress__bar");
+  if (progressBar) {
+    const index = Array.from(progressBars).indexOf(progressBar);
+    const audioElement = audioElements[index];
+    if (!audioElement) return;
 
-  // Time Update & Progress Bar
-  audioElement.addEventListener("timeupdate", () => {
-    const currentTime = audioElement.currentTime;
     const duration = audioElement.duration;
-    progressBar.value = (currentTime / duration) * 100;
-    currentTimeEl.textContent = formatTime(currentTime);
-  });
-
-  // Scrubbing the Audio (User drags progress bar)
-  progressBar.addEventListener("input", () => {
-    const duration = audioElement.duration;
-    // Calculate new time
     const newTime = (progressBar.value / 100) * duration;
     audioElement.currentTime = newTime;
-  });
+  }
 });
 
 window.addEventListener("scroll", () => {
@@ -111,24 +138,6 @@ window.addEventListener("scroll", () => {
 });
 
 const observerOptions = { root: null, threshold: 0.1 };
-
-const animateCounter = function (el) {
-  const targetValue = parseFloat(el.getAttribute("data-target")) || 0;
-  const suffix = el.getAttribute("data-suffix") || "";
-  const duration = 2000;
-  const startTime = performance.now();
-  const hasDecimal = targetValue % 1 !== 0;
-  function update(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const currentValue = targetValue * progress;
-    el.textContent = hasDecimal
-      ? currentValue.toFixed(1) + suffix
-      : Math.floor(currentValue) + suffix;
-    if (progress < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-};
 
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
@@ -150,10 +159,8 @@ faqContainer.addEventListener("click", (e) => {
   const item = questionBtn.closest(".faq__item");
   if (!item) return;
 
-  // Toggle active class
   item.classList.toggle("active");
 
-  // Optionally, toggle + / -
   const indicator = questionBtn.querySelector(".faq__toggle");
   indicator.textContent = item.classList.contains("active") ? "–" : "+";
 });
