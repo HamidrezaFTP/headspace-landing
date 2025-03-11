@@ -61,9 +61,7 @@
             </li>
           </ul>
         </nav>
-        <button class="header__cta">
-          <a href="#">Try for free</a>
-        </button>
+        <a class="header__cta" href="#">Try for free</a>
       </div>
     </header>
     <main>
@@ -74,9 +72,7 @@
             Feel like your best self with meditations, stress-relieving
             exercises, sleep resources, and beyond.
           </p>
-          <button class="hero__cta">
-            <a href="#">Try 14 days free</a>
-          </button>
+          <a class="hero__cta" href="#">Try 14 days free</a>
         </div>
         <div class="hero__image">
           <img src="./assets/images/hero-img.webp" alt="Hero image" />
@@ -605,11 +601,15 @@
         <h2 class="faq__title">Frequently asked questions</h2>
         <div class="faq__container">
           <div class="faq__item">
-            <button class="faq__question">
+            <button
+              class="faq__question"
+              aria-expanded="false"
+              aria-controls="answer1"
+            >
               What is Headspace?
-              <span class="faq__toggle">+</span>
+              <span class="faq__toggle" aria-hidden="true">+</span>
             </button>
-            <div class="faq__answer">
+            <div class="faq__answer" id="answer1" role="region">
               <p>
                 Headspace is your lifelong guide to better mental health.
                 Through evidence-based
@@ -623,11 +623,15 @@
             </div>
           </div>
           <div class="faq__item">
-            <button class="faq__question">
+            <button
+              class="faq__question"
+              aria-expanded="false"
+              aria-controls="answer2"
+            >
               What is Headspace’s mission?
-              <span class="faq__toggle">+</span>
+              <span class="faq__toggle" aria-hidden="true">+</span>
             </button>
-            <div class="faq__answer">
+            <div class="faq__answer" id="answer2" role="region">
               <p>
                 Headspace was founded in 2010 with the mission to revolutionize
                 mental health for humanity and to guide you to more joy, less
@@ -638,11 +642,15 @@
             </div>
           </div>
           <div class="faq__item">
-            <button class="faq__question">
+            <button
+              class="faq__question"
+              aria-expanded="false"
+              aria-controls="answer3"
+            >
               How do I download the Headspace app?
-              <span class="faq__toggle">+</span>
+              <span class="faq__toggle" aria-hidden="true">+</span>
             </button>
-            <div class="faq__answer">
+            <div class="faq__answer" id="answer3" role="region">
               <p>
                 The Headspace app is currently available on Apple (iPhone, iPad,
                 iPod Touch) and Android (smartphone and tablet) devices.
@@ -655,11 +663,19 @@
             </div>
           </div>
           <div class="faq__item">
-            <button class="faq__question">
+            <button
+              class="faq__question"
+              aria-expanded="false"
+              aria-controls="answer4"
+            >
               What is included in a Headspace app subscription?
-              <span class="faq__toggle">+</span>
+              <span class="faq__toggle" aria-hidden="true">+</span>
             </button>
-            <div class="faq__answer faq__answer--long">
+            <div
+              class="faq__answer faq__answer--long"
+              id="answer4"
+              role="region"
+            >
               <p>
                 Once you've <a href="#" class="custom-link">subscribed</a>, your
                 subscription will include:
@@ -697,11 +713,15 @@
             </div>
           </div>
           <div class="faq__item">
-            <button class="faq__question">
+            <button
+              class="faq__question"
+              aria-expanded="false"
+              aria-controls="answer5"
+            >
               How much does Headspace cost?
-              <span class="faq__toggle">+</span>
+              <span class="faq__toggle" aria-hidden="true">+</span>
             </button>
-            <div class="faq__answer">
+            <div class="faq__answer" id="answer5" role="region">
               <p>
                 You can check out all of our different
                 <a href="#" class="custom-link">subscription plans</a>, which
@@ -714,11 +734,15 @@
             </div>
           </div>
           <div class="faq__item">
-            <button class="faq__question">
+            <button
+              class="faq__question"
+              aria-expanded="false"
+              aria-controls="answer6"
+            >
               Does my Headspace subscription automatically renew?
-              <span class="faq__toggle">+</span>
+              <span class="faq__toggle" aria-hidden="true">+</span>
             </button>
-            <div class="faq__answer">
+            <div class="faq__answer" id="answer6" role="region">
               <p>
                 Yes, your <a href="#" class="custom-link">annual</a> or
                 <a href="#" class="custom-link">monthly</a> subscription will
@@ -730,11 +754,15 @@
             </div>
           </div>
           <div class="faq__item">
-            <button class="faq__question">
+            <button
+              class="faq__question"
+              aria-expanded="false"
+              aria-controls="answer7"
+            >
               How do I cancel my Headspace subscription?
-              <span class="faq__toggle">+</span>
+              <span class="faq__toggle" aria-hidden="true">+</span>
             </button>
-            <div class="faq__answer">
+            <div class="faq__answer" id="answer7" role="region">
               <p>
                 If you need help canceling your subscription, you can learn more
                 <a href="#" class="custom-link">here</a>.
@@ -742,11 +770,15 @@
             </div>
           </div>
           <div class="faq__item">
-            <button class="faq__question">
+            <button
+              class="faq__question"
+              aria-expanded="false"
+              aria-controls="answer8"
+            >
               How can I support my team’s mental health at work?
-              <span class="faq__toggle">+</span>
+              <span class="faq__toggle" aria-hidden="true">+</span>
             </button>
-            <div class="faq__answer">
+            <div class="faq__answer" id="answer8" role="region">
               <p>
                 <a href="#" class="custom-link">Request a demo</a> to learn more
                 about how we help you support your team. Headspace is here to
